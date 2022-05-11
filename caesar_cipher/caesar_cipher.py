@@ -5,3 +5,6 @@ def encrypt():
 
 def decrypt():
   pass
+
+def crack():
+  pass
