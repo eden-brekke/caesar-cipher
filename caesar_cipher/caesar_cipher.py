@@ -29,4 +29,23 @@ def decrypt(encrypted_text, key):
   return encrypt(encrypted_text, -key)
 
 def crack(encrypted_text):
-  pass
+
+    word_count = 0
+
+    for candidate in candidate_words:
+        word = re.sub(r'[^A-Za-z]+','', candidate)
+        if word.lower() in word_list or word in name_list:
+            # print("english word", word)
+            word_count += 1
+        else:
+            pass
+            # print('not english word or name', word)
+
+    return word_count
+
+
+for phrase in candidates:
+    word_count = count_words(phrase)
+    percentage = int(word_count / len(phrase.split()) * 100)
+    if percentage > 50:
+        print(phrase, percentage)
